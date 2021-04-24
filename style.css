@@ -1,0 +1,385 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+   display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+.layout{
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cards{
+    display: block;
+    position: relative;
+}
+
+.cards__list{
+    display: none;
+    /* display: grid; */
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-gap: 40px;
+    justify-content: center;
+    height: 100vh;
+    align-content: center;
+}
+
+.cards__item{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    
+}
+
+.flipp .cards__wrapper {
+    transform: rotateY(180deg);
+}
+
+.cards__wrapper{
+    transition: 0.8s;
+    transform-style: preserve-3d;
+     
+    position: relative;
+}
+
+.cards__img{
+    width: 200px;
+    height: 200px;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+    transform: rotateY(180deg);
+}
+
+.cards__img-bg{
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+}
+
+
+.timer{
+    position: absolute;
+    top: 50px;
+    font-size: 40px;
+}
+
+
+.layout__inner{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    background-color: rgb(196, 182, 182);
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.form__item{
+    display: flex;
+    flex-direction: column;
+}
+
+.form__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.form__input{
+    width: 200px;
+    height: 20px;
+}
+
+.form__label{
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgb(54, 20, 20);
+}
+
+.block{
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.level{
+    display: flex;
+    margin-right: 40px;
+}
+
+.level__text{
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgb(54, 20, 20);
+}
+
+.level__select{
+    height: 20px;
+    width: 100px;
+}
+
+.level__select option{
+    font-size: 18px;
+}
+
+.level__select::placeholder{
+    font-size: 18px;
+}
+
+.cards-list{
+    display: flex;
+}
+
+.block-cards__text{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(54, 20, 20);
+}
+
+.cards-list__item{
+    width: 100px;
+    height: 100px;
+}
+
+
+.cards-list__item:not(:last-child){
+    margin-right: 15px;
+}
+
+.cards-list__img{
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+.btn{
+    width: 140px;
+    height: 40px;
+    background-color: rgb(161, 93, 93);
+    color: #fff;
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+.border{
+    border: 4px solid rgb(182, 25, 25);
+}
+
+
+.rating{
+    position: absolute;
+    top: 120px;
+    right: -60px;
+    background-color: rgb(206, 182, 182);
+    padding: 40px;
+}
+
+.rating__title{
+    font-size: 36px;
+    width: 300px;
+}
+
+
+.rating__headlines{
+    font-size: 22px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+.rating__text:not(:first-child){
+    width: auto;
+}
+
+.rating__text--blank{
+    width: 105px;
+}
+
+.rating__text--name{
+    width: 105px;
+}
+
+
+.rating__item{
+    display: flex;
+    font-size: 22px;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: -14px;
+}
+
+.rating__item--new{
+    background-color: #90EE90;
+}
+
+.btn-restart{
+    position: absolute;
+    top: 600px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
+    text-transform: capitalize;
+}
+
+.btn-back{
+    position: absolute;
+    top: 200px;
+    width: 200px;
+    height: 40px;
+    font-size: 28px;
+}
+
+
+.welcome{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.welcome__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 920px;
+    height: 600px;
+    background-color: #90EE90;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.welcome__title{
+    text-align: center;
+    font-size: 34px;
+    margin-top: 50px;
+}
+
+.welcome__img{
+    width: 50%;
+    margin-top: 50px;
+}
+
+.welcome__text{
+    width: 80%;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.welcome__btn{
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+
+.congrat{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.congrat__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 920px;
+    height: 600px;
+    background-color: #90EE90;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.congrat__img {
+    width: 80%;
+    margin-top: 50px;
+}
+
+.congrat__text{
+    width: 80%;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.congrat__text--res{
+    color: rgb(9, 192, 238);
+}
+
+.congrat__controls{
+    display: flex;
+    margin-top: 40px;
+}
+
+.congrat__btn{
+    width: 140px;
+    height: 30px;
+}
+
+.congrat__btn--more{
+    margin-right: 30px;
+}
