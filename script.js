@@ -114,7 +114,7 @@ class Match {
             this.getResult();
             this.renderRatingList();
 
-            const congrat = new Congratulation(this);
+            const congrat = new Congratulation(this.result, this.arrOfCards, this.bgOfCards, this.name, this.level);
             congrat.init();
         } 
     }
@@ -385,13 +385,14 @@ class Match {
 
     initListenerBack() {
         const btn = document.querySelector('.btn-back');
-        btn.addEventListener('click', () => this.handleBack(btn));
+        btn.addEventListener('click', this.handleBack);
     }
 
-    handleBack(btnBack) {
-        const items = document.querySelectorAll('.cards__item');
+    handleBack = () => {
+           const items = document.querySelectorAll('.cards__item');
            items.forEach(elem => elem.remove());
-           btnBack.remove();
+           const btn = document.querySelector('.btn-back');
+           btn.remove();
            const rating = document.querySelector('.rating');
            rating.remove();
            const btnReset = document.querySelector('.btn-restart');
@@ -425,6 +426,7 @@ class Match {
     }
 
     initRestart(msg) {
+        console.log(this)
         this.stopTimer(msg);
         this.initProps();
         this.initTimer();
@@ -435,11 +437,6 @@ class Match {
         this.initListenerOpen();
     }
 }
-
-
-
-
-let bgCards;
 
 
 class ChooseOption {
@@ -646,8 +643,12 @@ class ChooseOption {
 
 class Congratulation {
 
-    constructor(prevGame) {
-        this.game = prevGame;
+    constructor(result, arrOfCards, bgOfCards, name, level) {
+        this.result = result;
+        this.arrOfCards = arrOfCards;
+        this.bgOfCards = bgOfCards;
+        this.name = name;
+        this.level = level;
     }
 
     renderHTML(res) {
@@ -668,13 +669,13 @@ class Congratulation {
 
     initListenerBack() {
         const btn = document.querySelector('.congrat__btn--back');
-        console.log(btn)
+
         btn.addEventListener('click', () => {
             const congrat = document.querySelector('.congrat');
             congrat.remove();
 
-            const btnBack = document.querySelector('.btn-back');
-            this.game.handleBack(btnBack);
+            const game = new Match(this.arrOfCards, this.bgOfCards, this.name, this.level);
+            game.handleBack('back');
         });
     }
 
@@ -682,17 +683,19 @@ class Congratulation {
         const btn = document.querySelector('.congrat__btn--more');
         btn.addEventListener('click', () => {
             const congrat = document.querySelector('.congrat');
-            console.log(congrat);
-            congrat.remove();
+            this.removeElements(congrat);
 
-        
             const cardsItems = document.querySelectorAll('.cards__item');
-            cardsItems.forEach((elem) => {
-                elem.remove();
-            });
-        
-            this.game.initRestart('congrat');
+            this.removeElements(cardsItems);
+ 
+            const game = new Match(this.arrOfCards, this.bgOfCards, this.name, this.level);
+            game.handleRestart('back');
         });
+    }
+
+    removeElements(elem) {
+        if(elem.length) elem.forEach(el => el.remove());
+        else elem.remove();  
     }
 
     initListeners() {
@@ -701,7 +704,7 @@ class Congratulation {
     }
 
     init() {
-        this.renderHTML(this.game.result);
+        this.renderHTML(this.result);
         this.initListeners();
     }
 }
@@ -709,6 +712,10 @@ class Congratulation {
 
 
 class Welcome {
+
+    constructor() {
+        this.option = new ChooseOption();
+    }
 
     renderHTML() {
         const div = document.createElement('div');
@@ -723,15 +730,17 @@ class Welcome {
         wrapper.appendChild(div);
     }
 
+    removeHTML() {
+        const welcome = wrapper.querySelector('.welcome');
+        welcome.remove();
+    }
+
 
     initListenerStart() {
-      const btn = document.querySelector('.welcome__btn');
+      const btn = wrapper.querySelector('.welcome__btn');
       btn.addEventListener('click', () => {
-          const welcome = document.querySelector('.welcome');
-          welcome.remove();
-
-            const option = new ChooseOption();
-            option.init();
+            this.removeHTML();
+            this.option.init();
       });
     }
 

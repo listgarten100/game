@@ -46,13 +46,16 @@ ol, ul {
 }
 
 .cards__list{
-    display: none;
-    /* display: grid; */
+    display: grid;
     grid-template-columns: 200px 200px 200px 200px;
     grid-gap: 40px;
     justify-content: center;
     height: 100vh;
     align-content: center;
+}
+
+.cards__list--display{
+    display: grid;
 }
 
 .cards__item{
@@ -99,6 +102,7 @@ ol, ul {
     position: absolute;
     top: 50px;
     font-size: 40px;
+    z-index: 2;
 }
 
 
@@ -140,6 +144,10 @@ ol, ul {
     margin-bottom: 10px;
     font-size: 20px;
     color: rgb(54, 20, 20);
+}
+
+.form__label::first-letter{
+    text-transform: capitalize;
 }
 
 .block{
@@ -218,6 +226,7 @@ ol, ul {
     right: -60px;
     background-color: rgb(206, 182, 182);
     padding: 40px;
+    z-index: 2;
 }
 
 .rating__title{
@@ -269,6 +278,7 @@ ol, ul {
     height: 40px;
     font-size: 28px;
     text-transform: capitalize;
+    z-index: 2;
 }
 
 .btn-back{
@@ -277,6 +287,7 @@ ol, ul {
     width: 200px;
     height: 40px;
     font-size: 28px;
+    z-index: 2;
 }
 
 
@@ -380,6 +391,6 @@ ol, ul {
     height: 30px;
 }
 
-.congrat__btn--more{
+.congrat__btn:first-child{
     margin-right: 30px;
 }
