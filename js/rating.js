@@ -48,13 +48,18 @@ class Rating{
         let localArr = [];
 
         for(let i = 0; i < Object.keys(localStorage).length; i++) {
-            if(this.level === JSON.parse(Object.keys(localStorage)[i]).level) {
-                localArr.push({
-                    name: JSON.parse(Object.keys(localStorage)[i]).name,
-                    value: JSON.parse(Object.values(localStorage)[i])
-                });
+            try {
+                if(this.level === JSON.parse(Object.keys(localStorage)[i]).level) {
+                    localArr.push({
+                        name: JSON.parse(Object.keys(localStorage)[i]).name,
+                        value: JSON.parse(Object.values(localStorage)[i])
+                    });
+                }
+            } catch(err) {
+                console.warn(err);
             }     
         }
+    
  
         localArr.sort(function (a, b) {
             if (a.value > b.value) return 1;

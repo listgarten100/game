@@ -1,5 +1,3 @@
-
-
 class Welcome {
 
     constructor(wrapper) {
@@ -10,11 +8,11 @@ class Welcome {
     _initModules() {
         this.btnStart = new Button(this.blockHtmlInner, 'welcome__btn', 'Quick start');
         this.btnStart._handleListenerBtn = () => {
-            console.log(this)
             this.removeHTML();
             this.option.init();
         };
         this.btnStart.init();
+
     }
 
     renderHTML() {
